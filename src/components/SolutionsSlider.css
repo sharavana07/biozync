@@ -1,0 +1,317 @@
+/* Import modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ========================================== 
+   SOLUTIONS SLIDER COMPONENT STYLES 
+========================================== */
+
+.solutions-slider {
+  padding: 120px 0;
+  background: var(--gradient-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.solutions-slider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 192, 149, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.solutions-slider h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 80px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--shadow-glow);
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 2;
+}
+
+.slider-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.product-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 500px;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-card);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 24px;
+}
+
+.product-card:hover {
+  transform: translateY(-20px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-teal);
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+  border-color: var(--primary-teal);
+  box-shadow: var(--shadow-glow);
+}
+
+.product-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  flex-shrink: 0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 80px;
+}
+
+.product-card button {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border: none;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-soft);
+  flex-shrink: 0;
+  margin-top: auto;
+  width: 160px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.product-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  background: var(--gradient-secondary);
+}
+
+.product-card button:hover::before {
+  left: 100%;
+}
+
+.product-card button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .solutions-slider {
+    padding: 80px 0;
+  }
+
+  .solutions-slider h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+  }
+
+  .slider-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .product-card {
+    padding: 30px;
+    min-height: 450px;
+  }
+
+  .product-card img {
+    height: 160px;
+    margin-bottom: 20px;
+  }
+
+  .product-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .product-card p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+
+  .product-card button {
+    padding: 14px 28px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .solutions-slider {
+    padding: 60px 0;
+  }
+
+  .solutions-slider h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .slider-container {
+    padding: 0 15px;
+  }
+
+  .product-card {
+    padding: 25px;
+    border-radius: 20px;
+    min-height: 400px;
+  }
+
+  .product-card img {
+    height: 140px;
+    border-radius: 12px;
+  }
+
+  .product-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .product-card button {
+    padding: 12px 24px;
+    border-radius: 10px;
+  }
+}
+
+/* Enhanced animations for better user experience */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.product-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* Ensure cards are equal height and perfectly aligned */
+.slider-container {
+  align-items: stretch;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.product-card > * {
+  width: 100%;
+}
+
+.product-card img,
+.product-card h3,
+.product-card p,
+.product-card button {
+  align-self: center;
+}
