@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import bgVideo from '../assets/Web Video.mp4';
-const bgVideo = "https://drive.google.com/uc?export=download&id=17-vHssS_HcY2OwcuTG-LLdxrej2-5YI3";
+const bgVideo = "https://res.cloudinary.com/dwk7tj6jb/video/upload/dbm3thp2dzkxptkoitit.mp4";
 import SolutionsSlider from './SolutionsSlider';
 
 function HomePage() {
