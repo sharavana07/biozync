@@ -304,7 +304,6 @@ body {
 .hero-left button:hover::before {
   left: 100%;
 }
-
 /* ==========================================
    CLIMATE CLOCK SECTION
    ========================================== */
@@ -351,6 +350,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
 .clock-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -358,7 +358,6 @@ body {
   margin: 3rem 0;
   justify-items: center;
 }
-
 
 .clock-left, 
 .clock-right {
@@ -378,6 +377,32 @@ body {
   box-shadow: var(--shadow-hover);
 }
 
+/* Different color palette for right clock */
+.clock-right {
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 107, 0.1) 0%, 
+    rgba(255, 154, 107, 0.05) 50%, 
+    rgba(255, 107, 170, 0.1) 100%);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(255, 107, 107, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.clock-right:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 16px 48px rgba(255, 107, 107, 0.25),
+    0 0 0 1px rgba(255, 107, 107, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.clock-right .countdown {
+  color: #ff6b6b;
+  text-shadow: 0 0 25px rgba(255, 107, 107, 0.7);
+  animation: pulseRed 2s ease-in-out infinite alternate;
+}
+
 .countdown {
   font-family: 'JetBrains Mono', monospace;
   font-size: 2.5rem;
@@ -388,6 +413,25 @@ body {
   animation: pulse 2s ease-in-out infinite alternate;
 }
 
+/* Animation for the red clock */
+@keyframes pulseRed {
+  from {
+    text-shadow: 0 0 25px rgba(255, 107, 107, 0.7);
+  }
+  to {
+    text-shadow: 0 0 35px rgba(255, 107, 107, 0.9);
+  }
+}
+
+/* Original pulse animation for left clock */
+@keyframes pulse {
+  from {
+    text-shadow: 0 0 25px rgba(0, 192, 149, 0.7);
+  }
+  to {
+    text-shadow: 0 0 35px rgba(0, 192, 149, 0.9);
+  }
+}
 /* ==========================================
    CONTACT SECTION
    ========================================== */
