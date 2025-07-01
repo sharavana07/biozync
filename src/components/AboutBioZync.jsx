@@ -270,7 +270,6 @@ function AboutBioZync() {
           {stats.map((stat, i) => (
             <div key={i} className={styles.statCard}>
               <div className={styles.statValue}>
-                // eslint-disable-next-line react-hooks/rules-of-hooks
                 {useCounter(stat.end, 2000, stat.key)}{stat.suffix}
               </div>
               <div className={styles.statLabel}>{stat.label}</div>
